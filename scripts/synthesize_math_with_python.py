@@ -5,7 +5,7 @@ cluster = "my-slurm"  # change this to match your cluster config name
 generate(
     ctx=wrap_arguments(
         # we are using fewer tokens than max context length as code output isn't accounted for
-        "++inference.tokens_to_generate=120000 "
+        "++inference.tokens_to_generate=64000 "
         # recommended inference settings including prompt config
         "++inference.temperature=1.0 "
         "++inference.top_p=1.0 "
@@ -34,7 +34,7 @@ generate(
     server_gpus=8,
     input_file="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/data/coding_35k_problems.jsonl",
     # generations will be here. Needs to be a mounted folder
-    output_dir="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/gpt-oss-sdg/with-python/open-math-reasoning",
+    output_dir="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/gpt-oss-sdg/with-python/coding_35k",
     # any vllm arguments can be used here
     server_args="--async-scheduling",
     # launch a sandbox alongside the job that will keep track of
@@ -45,6 +45,6 @@ generate(
     # (useful if your cluster has a fixed timeout per job)
     # set these according to your cluster configuration
     num_chunks=2,
-    dependent_jobs=2,
+    dependent_jobs=4,
     num_random_seeds=4,
 )
