@@ -164,7 +164,7 @@ class CodeExecutionWrapper:
                 if generation_index == effective_max_code_executions:
                     break
                 # adjusting requested tokens to account for what has been generated already
-                request["tokens_to_generate"] -= num_generated_tokens
+                request["tokens_to_generate"] -= (num_generated_tokens + 50) # adding some buffer
                 total_num_generated_tokens += num_generated_tokens
                 generation_time += int(time.time() - generation_time_start)
                 # TODO: currently we don't account for tokens in the code output that we add to the prompt
