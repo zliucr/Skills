@@ -22,7 +22,7 @@ generate(
         # "++code_execution=false "
         # "++server.code_execution.max_code_executions=100 "
         # settings to enable high reasoning and Python built-in tool
-        # "++chat_template_kwargs.reasoning_effort=high "
+        "++chat_template_kwargs.reasoning_effort=high "
         # "++chat_template_kwargs.builtin_tools=[python] "
     ),
     cluster=cluster,
@@ -34,7 +34,7 @@ generate(
     server_gpus=8,
     input_file="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/data/coding_35k_problems.jsonl",
     # generations will be here. Needs to be a mounted folder
-    output_dir="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/gpt-oss-sdg/without-python/coding_35k",
+    output_dir="/lustre/fsw/portfolios/llmservice/users/dongfuj/Workspace/Skills/gpt-oss-sdg/without-python/coding_35k_high",
     # any vllm arguments can be used here
     server_args="--async-scheduling",
     # launch a sandbox alongside the job that will keep track of
@@ -44,8 +44,8 @@ generate(
     # dependent_jobs=M will schedule this many dependent jobs on Slurm
     # (useful if your cluster has a fixed timeout per job)
     # set these according to your cluster configuration
-    num_chunks=4,
-    dependent_jobs=4,
+    num_chunks=1,
+    dependent_jobs=1,
     starting_seed=0,
-    num_random_seeds=8,
+    num_random_seeds=32,
 )
