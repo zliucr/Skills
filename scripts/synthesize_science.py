@@ -1,15 +1,16 @@
 from nemo_skills.pipeline.cli import generate, wrap_arguments
 
-cluster = "my-slurm"  # change this to match your cluster config name
+# cluster = "my-slurm"  # change this to match your cluster config name
+cluster = "my-slurm-interactive"  # change this to match your cluster config name
 
-## science_86k_high_quality
-INPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/science/science_86k_high_quality.jsonl"
-OUTPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/science/science_86k_high_quality"
+## science_high_quality_prompts_3694
+INPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/science/science_high_quality_prompts_3694.jsonl"
+OUTPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/science/science_high_quality_prompts_3694"
 
-NUM_SOLUTIONS_TO_GENERATE = 1
+NUM_SOLUTIONS_TO_GENERATE = 2
 DEPENDENT_JOBS = 0
 STARTING_SEED = 0
-NUM_CHUNKS = 4
+NUM_CHUNKS = 1
 
 ## prompt_config path
 # nemo_skills/prompt/config/gpt-oss/...
