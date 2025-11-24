@@ -70,7 +70,5 @@ generate(
 # cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills
 # conda activate nemoskills
 
-# export NEMO_SKILLS_DISABLE_UNCOMMITTED_CHANGES_CHECK=1
 # git commit to repo
-# cd scripts
-# python synthesize_cqa.py
+# python scripts/synthesize_cqa.py

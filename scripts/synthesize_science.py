@@ -63,8 +63,8 @@ generate(
 )
 
 ## commands
-# cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills/scripts
+# cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills
 # conda activate nemoskills
 
-# export NEMO_SKILLS_DISABLE_UNCOMMITTED_CHANGES_CHECK=1
-# python synthesize_science.py
+# git commit to repo
+# python scripts/synthesize_science.py
