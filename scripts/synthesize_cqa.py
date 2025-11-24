@@ -2,13 +2,21 @@ from nemo_skills.pipeline.cli import generate, wrap_arguments
 
 cluster = "my-slurm"  # change this to match your cluster config name
 
-INPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/math/math_sft_data_clean_prompts_only_163k_deduped_against_math_tir_78k.jsonl"
-OUTPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/gpt_oss_120b/math/math_sft_data_clean_prompts_only_163k_deduped_against_math_tir_78k"
+## convqa_turnlevel_questions_5k
+INPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/chatqa_multiturn/convqa_turnlevel_questions_5k.jsonl"
+OUTPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/chatqa_multiturn/convqa_turnlevel_questions_5k"
 
-NUM_SOLUTIONS_TO_GENERATE = 8
+# ## scalecqa_turnlevel_questions_18k
+# INPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/chatqa_multiturn/scalecqa_turnlevel_questions_18k.jsonl"
+# OUTPUT_FILE = "/lustre/fsw/portfolios/llmservice/users/zihanl/datasets/foundational_qa/s3_data/sftdedup/chatqa_multiturn/scalecqa_turnlevel_questions_18k"
+
+NUM_SOLUTIONS_TO_GENERATE = 3
 DEPENDENT_JOBS = 0
 STARTING_SEED = 0
-NUM_CHUNKS = 4
+NUM_CHUNKS = 1
+
+## prompt_config path
+# nemo_skills/prompt/config/gpt-oss/...
 
 generate(
     ctx=wrap_arguments(
@@ -17,7 +25,7 @@ generate(
         # recommended inference settings including prompt config
         "++inference.temperature=1.0 "
         "++inference.top_p=1.0 "
-        "++prompt_config=gpt-oss/math "
+        "++prompt_config=gpt-oss/default "
         # we currently implement native Python code tool through text completions API
         # as we found alternative implementations to have issues.
         # We will switch to the official responses API when the support is added
@@ -35,7 +43,7 @@ generate(
     ),
     cluster=cluster,
     # optional parameter here, but useful when chaining multiple jobs together in pipelines
-    expname="gpt-oss-sdg-math-without-python",
+    expname="gpt-oss-sdg-cqa",
     model="openai/gpt-oss-120b",
     server_type='vllm',
     # can customize the number of GPUs used
@@ -59,8 +67,10 @@ generate(
 )
 
 ## commands
-# cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills/scripts
+# cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills
 # conda activate nemoskills
 
 # export NEMO_SKILLS_DISABLE_UNCOMMITTED_CHANGES_CHECK=1
-# python synthesize_math_without_python.py
+# git commit to repo
+# cd scripts
+# python synthesize_cqa.py
