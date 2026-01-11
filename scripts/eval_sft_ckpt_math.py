@@ -1,7 +1,7 @@
 from nemo_skills.pipeline.cli import generate, wrap_arguments, eval
 
 cluster = "slurm"
-output_dir = "/lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills/eval-results/zihan-sft-eval/"
+output_dir = "/lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills/results/zihan-sft-eval/"
 gpus=8
 server_nodes=1
 i=0
@@ -12,7 +12,10 @@ model_path = "/lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/
 # cd /lustre/fsw/portfolios/llmservice/users/zihanl/inform/megatron2hf/llm_ft/Post-Training/sft/Skills
 # conda activate nemoskills
 
-# python scripts/eval_sft_ckpt.py
+# git commit to repo or
+# export NEMO_SKILLS_DISABLE_UNCOMMITTED_CHANGES_CHECK=1
+
+# python scripts/eval_sft_ckpt_math.py
 
 
 for benchmark in ["aime25"]:
