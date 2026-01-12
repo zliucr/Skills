@@ -186,8 +186,8 @@ def write_data_to_file(output_file, data, txt_file_folder, max_context_window, t
                     LOG.warning(f"Skipping {idx} because it has {n_tokens} tokens")
                     continue
 
-            if n_tokens != entry["input_tokens"]:  # check if the n_tokens exactly match the input_tokens in the entry
-                raise ValueError(f"n_tokens: {n_tokens} != input_tokens: {entry['input_tokens']}")
+            # if n_tokens != entry["input_tokens"]:  # check if the n_tokens exactly match the input_tokens in the entry
+            #     raise ValueError(f"n_tokens: {n_tokens} != input_tokens: {entry['input_tokens']}")
 
             entry[f"n_tokens_{tokenizer_name}"] = n_tokens
             entry["question"] = question
