@@ -270,6 +270,7 @@ def eval(
         "generation_module": judge_generation_module,
     }
     eval_requires_judge = any(param_value for param_value in cli_judge_pipeline_args.values())
+    print("eval_requires_judge:", eval_requires_judge)
 
     # Prepare cluster config and mount paths
     cluster_config = pipeline_utils.get_cluster_config(cluster, config_dir)
