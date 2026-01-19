@@ -35,6 +35,7 @@ from nemo_skills.evaluation.evaluator.math import (
 )
 from nemo_skills.evaluation.evaluator.mcq import eval_mcq
 from nemo_skills.evaluation.evaluator.mrcr import eval_mrcr
+from nemo_skills.evaluation.evaluator.multi_challenge import eval_multi_challenge
 from nemo_skills.evaluation.evaluator.ojbench import eval_ojbench
 from nemo_skills.evaluation.evaluator.ruler import eval_ruler
 from nemo_skills.evaluation.evaluator.scicode import eval_scicode
@@ -58,6 +59,7 @@ EVALUATOR_MAP = {
     "livecodebench_pro": eval_livecodebench_pro,
     "scicode": eval_scicode,
     "mrcr": eval_mrcr,
+    "multi_challenge": eval_multi_challenge,
     "ioi": eval_ioi,
     "bigcodebench": eval_bigcodebench,
     "ojbench": eval_ojbench,
