@@ -1,3 +1,5 @@
 # Default prompt that does not contain any extra instructions. Can be used for instruction following evals (e.g. ifeval)
 
-user: "{prompt}"
+system: "You are a helpful and harmless assistant.\n\nYou are not allowed to use any tools."
+
+user: "{question}"
