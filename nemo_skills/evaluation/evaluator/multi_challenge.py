@@ -38,7 +38,9 @@ def get_auth_token():
     url = "https://5kbfxgaqc3xgz8nhid1x1r8cfestoypn-trofuum-oc.ssa.nvidia.com/token"
     
     client_id = "nvssa-prd-bupKWJXZ9P4kkYbbumtp_N3pXMFT52Um6dH_g2S3k-M"  # all
-    client_secret = "ssap-fnohx4Q51S93hPoPLB7"
+    # client_secret = "ssap-fnohx4Q51S93hPoPLB7"
+    client_secret = "ssap-NLSwjA0el0OniunuVyf"
+    print("updated client secret!")
     
     data = {
         "grant_type": "client_credentials",
